@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 // ===================================================================================
                 // Send data to backend via HTTP POST
-                const response = await fetch("/api/predict", {
+                const response = await fetch("https://websoy-production.up.railway.app/api/predict", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

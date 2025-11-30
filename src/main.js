@@ -8,6 +8,53 @@ document.addEventListener("DOMContentLoaded", function () {
     const resultSection = document.getElementById("resultSection");
     const resultContent = document.getElementById("resultContent");
 
+    // ============================================
+    // BURGER MENU & SIDEBAR FUNCTIONALITY
+    // ============================================
+    const burgerMenu = document.getElementById("burgerMenu");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+    const overlay = document.getElementById("overlay");
+    const sidebarLinks = document.querySelectorAll(".sidebarLink");
+
+    // Open sidebar
+    if (burgerMenu) {
+        burgerMenu.addEventListener("click", function () {
+            sidebar.classList.add("active");
+            overlay.classList.add("active");
+            document.body.style.overflow = "hidden"; // Prevent body scroll when sidebar is open
+        });
+    }
+
+    // Close sidebar
+    function closeSidebarMenu() {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+        document.body.style.overflow = ""; // Restore body scroll
+    }
+
+    if (closeSidebar) {
+        closeSidebar.addEventListener("click", closeSidebarMenu);
+    }
+
+    if (overlay) {
+        overlay.addEventListener("click", closeSidebarMenu);
+    }
+
+    // Close sidebar when clicking on any sidebar link
+    sidebarLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+            closeSidebarMenu();
+        });
+    });
+
+    // Close sidebar on ESC key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && sidebar.classList.contains("active")) {
+            closeSidebarMenu();
+        }
+    });
+
     // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {

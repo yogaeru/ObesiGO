@@ -1,0 +1,12 @@
+# Core Dependencies
+fastapi[standard]>=0.121.2
+uvicorn[standard]>=0.30.0
+
+# Machine Learning
+scikit-learn>=1.7.0
+joblib>=1.5.1
+numpy>=2.2.0
+pandas>=2.2.0
+
+# Additional
+python-multipart>=0.0.20
